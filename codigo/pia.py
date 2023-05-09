@@ -112,7 +112,7 @@ def main():
         print("---------------------------------------------------")
         print("Ingrese una cadena para ser validada:")
         
-        cadena = str(input())
+        cadena = '.' + str(input()) + '.'
         
         print("---------------------------------------------------")
        
