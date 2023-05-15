@@ -11,6 +11,7 @@ import os
 from automata.tm.dtm import DTM       
 
 # Imprime los resultados de la Maquina de Turing
+'''
 def imprimeResultado(cadena, turing_machine):
     tupla = turing_machine.validate_input(cadena, step = True)
 
@@ -25,7 +26,25 @@ def imprimeResultado(cadena, turing_machine):
         
         print("\n")
         print("[Cadena valida]")
+'''
+
+def imprimeResultado(cadena, turing_machine):
+    tupla = turing_machine.validate_input(cadena, step = True)
+
+    try:
+        turing_machine.validate_input(cadena)
+    except Exception as error_message: 
+        print("Transicion no definida en " + str(error_message)[-7:])
+        print("[Cadena invalida]")
+    else:
+        for i in tupla:
+            i_str = str(i)
+            print(i_str[:-1].replace('TMTape', '') + ' \\vdash \\\\')
         
+        print("\n")
+        print("[Cadena valida]")
+
+
 # Programa principal 
 def main():
     turing_machine = DTM(
